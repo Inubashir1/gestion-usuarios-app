@@ -1,0 +1,65 @@
+<div class="user-management-container">
+    <header class="header">
+        <h1>Gestión de Registro - Usuarios</h1>
+        <button class="refresh-button" (click)="loadUsers()">
+            <span class="material-icons">refresh</span>
+        </button>
+    </header>
+
+    <div class="toolbar">
+        <input 
+            type="text" 
+            placeholder="Buscar por nombre, usuario o teléfono..." 
+            [(ngModel)]="searchTerm" 
+            (input)="applyFilter()"
+            class="search-input"
+        >
+        <button class="add-user-button" (click)="navigateToRegistration()">
+            <span class="material-icons">person_add</span> Nuevo Usuario
+        </button>
+    </div>
+
+    <div class="user-table-wrapper">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Nombres y Apellidos</th>
+                    <th>Teléfono</th>
+                    <th>Nombre de Usuario</th>
+                    <th>Estado</th>
+                    <th>Área</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of filteredUsers; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ user.firstName }} {{ user.lastName }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        <span class="status-badge" [ngClass]="{'active': user.isActive, 'inactive': !user.isActive}">
+                            {{ user.isActive ? 'ACTIVO' : 'INACTIVO' }}
+                        </span>
+                    </td>
+                    <td>{{ user.area }}</td>
+                    <td class="actions-cell">
+                        <button class="action-button edit-button" (click)="editUser(user)">
+                            <span class="material-icons">edit</span>
+                        </button>
+                        
+                        <button 
+                            class="action-button toggle-status-button" 
+                            [ngClass]="{'deactivate': user.isActive, 'activate': !user.isActive}" 
+                            (click)="toggleUserStatus(user)"
+                            title="{{ user.isActive ? 'Desactivar Usuario' : 'Activar Usuario' }}"
+                        >
+                            <span class="material-icons">{{ user.isActive ? 'lock_open' : 'lock' }}</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
