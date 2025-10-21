@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<header class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  
+  <div class="container-fluid">
+    
+    <a class="navbar-brand fw-bold" href="#">
+      Municipalidad Distrital de Nuevo Chimbote
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarPrincipal">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/portal">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tickets</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-light text-primary" href="#">
+            <i class="bi bi-box-arrow-in-right me-2"></i>
+            Iniciar Sesión
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</header>
+
+<main class="flex-shrink-0">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer mt-auto py-3 bg-dark text-white">
+  <div class="container text-center">
+    <span>© 2025 Municipalidad Distrital de Nuevo Chimbote. Todos los derechos reservados.</span>
+  </div>
+</footer>
