@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortalPublico } from './portal-publico';
+import { PortalPublico } from './portal-publico.component';
 
 describe('PortalPublico', () => {
   let component: PortalPublico;

@@ -1,0 +1,140 @@
+<div class="container-fluid p-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h4">Panel Administrativo</h2>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ticketModal">
+            <i class="bi bi-plus-lg me-2"></i> Nuevo Ticket
+        </button>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="card-title mb-0">Lista de Tickets</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col">Sujeto</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col" class="text-center">Estado</th>
+                            <th scope="col" class="text-center">Prioridad</th>
+                            <th scope="col" class="text-center">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">1</td>
+                            <td>Reporte de impresora</td>
+                            <td>Juan Pérez</td>
+                            <td class="text-center">
+                                <span class="badge bg-success">Abierto</span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-danger">Alta</span>
+                            </td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-info" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#ticketModal"
+                                        title="Actualizar Ticket">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2</td>
+                            <td>Falla de conexión</td>
+                            <td>Ana García</td>
+                            <td class="text-center">
+                                <span class="badge bg-warning text-dark">En Progreso</span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-secondary">Media</span>
+                            </td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-info" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#ticketModal"
+                                        title="Actualizar Ticket">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> 
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <h5 class="modal-title" id="ticketModalLabel">Actualización de estado de ticket</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <form>
+                    <div class="row g-3">
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Ticket ID</label>
+                                <input type="text" class="form-control" value="1" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha</label>
+                                <input type="text" class="form-control" value="18/10/2025" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" value="juan.perez@dominio.com" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="estadoSelect" class="form-label fw-bold">Estado</LabeL>
+                                <select id="estadoSelect" class="form-select">
+                                    <option>Abierto</option>
+                                    <option>En Progreso</option>
+                                    <option>Cerrado</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prioridadSelect" class="form-label fw-bold">Prioridad</label>
+                                <select id="prioridadSelect" class="form-select">
+                                    <option>Baja</option>
+                                    <option>Media</option>
+                                    <option>Alta</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Mensaje Original</label>
+                        <textarea class="form-control" rows="3" readonly>Mi impresora no funciona, se atascó el papel y ahora no enciende.</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="adminRespuesta" class="form-label fw-bold">Enviar Respuesta</label>
+                        <textarea id="adminRespuesta" class="form-control" rows="4" placeholder="Escriba su respuesta aquí..."></textarea>
+                    </div>
+
+                </form>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Actualizar Ticket</button>
+            </div>
+        </div>
+    </div>
+</div>
